@@ -34,6 +34,12 @@ public class Magpie
         if (statement.indexOf("no") >= 0)
         {
             response = "Why so negative?";
+            
+        }
+        else if (statement.indexOf("videogame") >= 0
+                || statement.indexOf("inecraft") >= 0)
+        {
+            response = getRandomResponseGames();
         }
         else if (statement.indexOf("mother") >= 0
                 || statement.indexOf("father") >= 0
@@ -41,6 +47,19 @@ public class Magpie
                 || statement.indexOf("brother") >= 0)
         {
             response = "Tell me more about your family.";
+        }
+        else if (statement.indexOf("cat") >= 0
+                || statement.indexOf("dog") >= 0)
+        {
+            response = "Tell me more about your pets.";
+        }
+        else if (statement.indexOf("Nathan") >= 0)
+        {
+            response = getRandomResponseNathan();
+        }
+        else if (statement.trim().equals(""))
+        {
+            response = "Alright, keep your secrets...";
         }
         else
         {
@@ -55,14 +74,14 @@ public class Magpie
      */
     public String getRandomResponse()
     {
-        final int NUMBER_OF_RESPONSES = 4;
+        final int NUMBER_OF_RESPONSES = 7;
         double r = Math.random();
         int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
         String response = "";
         
         if (whichResponse == 0)
         {
-            response = "Interesting, tell me more.";
+            response = "Bruh.";
         }
         else if (whichResponse == 1)
         {
@@ -76,10 +95,64 @@ public class Magpie
         {
             response = "You don't say.";
         }
+        else if (whichResponse == 4)
+        {
+            response = "Jimmy's Mom.";
+        }
+        else if (whichResponse == 5)
+        {
+            response = "K.";
+        }
+        else if (whichResponse == 6)
+        {
+            response = "I find your lack of faith disturbing.";
+        }
     
         return response;
     }
 
+    public String getRandomResponseNathan()
+    {
+        final int NUMBER_OF_RESPONSES = 3;
+        double r = Math.random();
+        int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
+        String response = "";
+        
+        if (whichResponse == 0)
+        {
+            response = "I hear he, he being the AWESOME TEACHER Nathan Lin, is kinda epic ngl.";
+        }
+        else if (whichResponse == 1)
+        {
+            response = "Nathan Lin?! Wow he is great!";
+        }
+        else if (whichResponse == 2)
+        {
+            response = "Nathan is such a cool and epic individual.";
+        }
+        return response;
+    }
+     public String getRandomResponseGames()
+    {
+        final int NUMBER_OF_RESPONSES = 3;
+        double r = Math.random();
+        int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
+        String response = "";
+        
+        if (whichResponse == 0)
+        {
+            response = "1v1 me on Hypixel nerd.";
+        }
+        else if (whichResponse == 1)
+        {
+            response = "Bro can you even Breezily?";
+        }
+        else if (whichResponse == 2)
+        {
+            response = "I love Minecraft.";
+        }
+        return response;
+    }
     // Checks to see if the String word appears as a whole word
     // in the String str (in this case, a "whole word" means that 
     // word is not just a substring of some larger word in str)
