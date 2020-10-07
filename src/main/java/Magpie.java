@@ -31,29 +31,31 @@ public class Magpie
     public String getResponse(String statement)
     {
         String response = "";
-        if (statement.indexOf("no") >= 0)
+        if (findWord(statement,"no") >= 0)
         {
             response = "Why so negative?";
             
         }
-        else if (statement.indexOf("videogame") >= 0
-                || statement.indexOf("inecraft") >= 0)
+        else if (findWord(statement,"videogame") >= 0
+                || findWord(statement,"Minecraft") >= 0)
         {
             response = getRandomResponseGames();
         }
-        else if (statement.indexOf("mother") >= 0
-                || statement.indexOf("father") >= 0
-                || statement.indexOf("sister") >= 0
-                || statement.indexOf("brother") >= 0)
+        else if (findWord(statement,"mother") >= 0
+                || findWord(statement,"father") >= 0
+                || findWord(statement,"sister") >= 0
+                || findWord(statement,"brother") >= 0)
         {
             response = "Tell me more about your family.";
         }
-        else if (statement.indexOf("cat") >= 0
-                || statement.indexOf("dog") >= 0)
+        else if (findWord(statement,"cat") >= 0
+                || findWord(statement,"dog") >= 0
+                || findWord(statement,"cats") >= 0
+                || findWord(statement,"dogs") >= 0)
         {
             response = "Tell me more about your pets.";
         }
-        else if (statement.indexOf("Nathan") >= 0)
+        else if (findWord(statement,"Nathan") >= 0)
         {
             response = getRandomResponseNathan();
         }
@@ -163,7 +165,30 @@ public class Magpie
     // The method returns the index of the first character in word
     // if it is found, and returns -1 otherwise. 
     public int findWord(String str, String word) {
-        return -1;
+        String strL = str.toLowerCase();
+        String wordL = word.toLowerCase();
+        
+        if(word.length()>str.length()||strL.indexOf(wordL)==-1){
+            return -1;
+        }
+        for(int i = 0; i<str.length();i++){
+            if(wordL.equals(strL)){
+                return strL.indexOf(wordL);
+            }else if(strL.charAt(i)==" "&&strL.substring(i+1,i+))
+        }
+        /*
+        else if  (
+            wordL.equals(strL)
+            || strL.indexOf(wordL)==0 && strL.substring(wordL.length(),wordL.length()+1).equals(" ")
+            ||strL.indexOf(wordL)!=0 && strL.length()-1-wordL.length() == strL.indexOf(wordL) && strL.substring(strL.indexOf(wordL)-1,strL.indexOf(wordL)).equals(" ") 
+            ||strL.indexOf(wordL)!=0 && strL.substring((strL.indexOf(wordL)-1),strL.indexOf(wordL)).equals(" ") && strL.substring(wordL.length(),wordL.length()+1).equals(" ")
+            )
+            {
+            return strL.indexOf(wordL);
+        }else{
+            return -1;
+        }
+        */
     }
 
     
